@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestra Historia</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Georgia, serif;
+background:linear-gradient(135deg,#fff0f5,#ffe4e1);
+text-align:center;
+overflow-x:hidden;
+}
+
+/* CORAZONES */
+
+.corazon{
+position:fixed;
+bottom:-50px;
+font-size:20px;
+animation:flotar 8s linear infinite;
+opacity:0.8;
+}
+
+@keyframes flotar{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-1000px) scale(1.5);
+opacity:0;
+}
+}
+
+/* HEADER */
+
+header{
+background:#ff6f91;
+color:white;
+padding:50px 20px;
+}
+
+.menu a{
+text-decoration:none;
+background:white;
+color:#ff6f91;
+padding:12px 25px;
+border-radius:25px;
+margin:10px;
+display:inline-block;
+font-weight:bold;
+}
+
+section{
+padding:60px 20px;
+}
+
+/* SECCION FELIZ 2 MESES */
+
+.feliz{
+background:white;
+margin:40px auto;
+max-width:800px;
+border-radius:20px;
+padding:40px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+animation:aparecer 2s ease;
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.feliz h2{
+color:#ff4d6d;
+font-size:40px;
+}
+
+.feliz p{
+font-size:20px;
+color:#555;
+}
+
+/* CARRUSEL */
+
+.carrusel-container{
+max-width:900px;
+height:600px;
+margin:auto;
+position:relative;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+background:#000;
+}
+
+.carrusel{
+display:flex;
+height:100%;
+transition:transform 0.6s ease;
+}
+
+.carrusel img{
+width:100%;
+height:100%;
+flex-shrink:0;
+object-fit:contain;
+}
+
+/* BOTONES */
+
+.boton{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.4);
+color:white;
+border:none;
+font-size:25px;
+padding:10px 15px;
+cursor:pointer;
+border-radius:50%;
+}
+
+.boton:hover{
+background:rgba(0,0,0,0.6);
+}
+
+.izq{
+left:10px;
+}
+
+.der{
+right:10px;
+}
+
+footer{
+margin-top:50px;
+padding:20px;
+background:#ff6f91;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CORAZONES -->
+<div class="corazon" style="left:10%">❤️</div>
+<div class="corazon" style="left:20%;animation-delay:2s">💖</div>
+<div class="corazon" style="left:35%;animation-delay:4s">❤️</div>
+<div class="corazon" style="left:50%;animation-delay:1s">💗</div>
+<div class="corazon" style="left:70%;animation-delay:3s">💖</div>
+<div class="corazon" style="left:85%;animation-delay:5s">❤️</div>
+
+<header>
+
+<h1>Nuestro blog L y J</h1>
+<p>Un espacio para recordar lo hermoso que es nuestra relacion</p>
+
+<div class="menu">
+<a href="musica.html">🎵 Nuestra Música</a>
+<a href="poesia.html">📜 Nuestra Poesía</a>
+</div>
+
+</header>
+
+<!-- FELIZ 2 MESES -->
+
+<section class="feliz">
+
+<h2>Feliz 2 Meses ❤️</h2>
+
+<p>
+Estos dos meses contigo han sido increíbles.  
+Cada momento, cada risa y cada recuerdo contigo  
+se ha vuelto algo muy especial para mí.
+A pesar de que hemos atravezado algunos momentos complicados
+se que tu y yo salimos y saldremos adelante siempre como un equipo.
+Te amo mucho Jenn....
+
+</p>
+
+<p>
+Disfruta de esta pagina tipo blog que hice para ti .
+</p>
+
+</section>
+
+<section>
+
+<h2>Nuestros Momentos</h2>
+
+<div class="carrusel-container">
+
+<div class="carrusel" id="carrusel">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+
+</div>
+
+<button class="boton izq" onclick="mover(-1)">❮</button>
+<button class="boton der" onclick="mover(1)">❯</button>
+
+</div>
+
+</section>
+
+<footer>
+<p>Hecho por Leonardo con todo el amor del mundo para Jenn</p>
+</footer>
+
+<script>
+
+let index=0
+const carrusel=document.getElementById("carrusel")
+const total=carrusel.children.length
+
+function mover(direccion){
+
+index+=direccion
+
+if(index<0){
+index=total-1
+}
+
+if(index>=total){
+index=0
+}
+
+actualizar()
+
+}
+
+function actualizar(){
+
+carrusel.style.transform="translateX(-"+(index*100)+"%)"
+
+}
+
+setInterval(()=>{
+mover(1)
+},8000)
+
+</script>
+
+</body>
+</html>
